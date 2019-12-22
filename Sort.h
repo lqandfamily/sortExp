@@ -15,6 +15,12 @@ typedef int elementType;
  */
 void shellSort(elementType srcArr[], int n);
 
+/**
+ * 直接插入排序
+ * @param arr 源数组,同时接受排序结果
+ * @param n 数组长度
+ */
+void insertSort(elementType arr[], int n);
 
 /**
  * 打印数组中所有元素

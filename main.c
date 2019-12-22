@@ -30,9 +30,21 @@ void testShellSort() {
     printArray(srcArray, n);
 }
 
+/**
+ * 测试直接插入排序
+ */
+void testInsertSort() {
+    int n;
+    elementType srcArray[] = {180, 203, 32, 46, 25, 76, 17, 58, 99, 100, 11, 102, 13, 54, 75, 6, 27, 18, 19, 29, 2, 82};
+    n = sizeof(srcArray) / sizeof(elementType);
+    insertSort(srcArray, n);
+    printArray(srcArray, n);
+}
+
 int main() {
 //    testSortHeap();
-    testShellSort();
+//    testShellSort();
+    testInsertSort();
     return 0;
 }
 
