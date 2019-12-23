@@ -65,11 +65,19 @@ void heapSort(elementType arr[], int n);
 void swap(elementType arr[], int m, int n);
 
 
+/**
+ * 二路归并排序
+ * @author https://www.jianshu.com/p/0e88554a5d97
+ * @param arr
+ * @param temp
+ * @param left
+ * @param right
+ */
 void mergeSort(int arr[], int temp[], int left, int right);
 
 /**
  * 将两个有序表归并成一个有序表
- *
+ * @author https://www.jianshu.com/p/0e88554a5d97
  * @param arr
  * @param temp     临时数组
  * @param leftPos  左边开始下标
