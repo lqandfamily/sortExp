@@ -52,12 +52,24 @@ void testQuickSort() {
     printArray(srcArray, n);
 }
 
+/**
+ * 测试堆排序
+ */
+void testHeapSort() {
+    int n;
+    elementType srcArray[] = {180, 203, 32, 46, 25, 76, 17, 58, 99, 100, 11, 102, 13, 54, 75, 6, 27, 18, 19, 29, 2, 82};
+    n = sizeof(srcArray) / sizeof(elementType);
+    heapSort(srcArray, n);
+    printArray(srcArray, n);
+}
+
 
 int main() {
 //    testSortHeap();
 //    testShellSort();
 //    testInsertSort();
-    testQuickSort();
+//    testQuickSort();
+    testHeapSort();
     return 0;
 }
 

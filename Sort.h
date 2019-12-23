@@ -41,6 +41,30 @@ void partition(elementType arr[], int low, int high, int *cutPoint);
 void quickSort(elementType arr[], int low, int high);
 
 /**
+ * 堆的调整（筛选）
+ * @param arr
+ * @param rootIndex 需要调整的根
+ * @param upperIndex 调整上限索引
+ */
+void shift(elementType arr[], int rootIndex, int upperIndex);
+
+/**
+ * 堆排序
+ * 包含无序数组建堆和堆的输出
+ * @param arr
+ * @param n
+ */
+void heapSort(elementType arr[], int n);
+
+/**
+ * 元素交换
+ * @param arr
+ * @param m
+ * @param n
+ */
+void swap(elementType arr[], int m, int n);
+
+/**
  * 打印数组中所有元素
  * @param arr
  * @param n 数组长度

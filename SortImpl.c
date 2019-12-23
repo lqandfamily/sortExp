@@ -83,6 +83,53 @@ void quickSort(elementType arr[], int low, int high) {
     }
 }
 
+void shift(elementType arr[], int rootIndex, int upperIndex) {
+    int isFinished = 0;                        //调整是否完成的标志
+    elementType rootTmpData = arr[rootIndex];  //取出当前根保存为临时值，腾空根位置
+    int maxChildIndex = 2 * rootIndex;         //默认认为左孩子最大
+    //开始递归调整
+    while (maxChildIndex <= upperIndex && !isFinished) {
+        //右孩子最大
+        if (maxChildIndex < upperIndex && arr[maxChildIndex + 1] > arr[maxChildIndex]) {
+            maxChildIndex += 1;
+        }
+        //根即为最大值，无需调整
+        if (rootTmpData >= arr[maxChildIndex]) {
+            isFinished = 1;
+            //根非最大值，需要调整最大值到根
+        } else {
+            arr[rootIndex] = arr[maxChildIndex];    //调整
+
+            rootIndex = maxChildIndex;              //向下继续筛选
+            maxChildIndex = maxChildIndex * 2;
+        }
+    }
+    //将原根值填充到向下搜索到到合适位置中
+    arr[rootIndex] = rootTmpData;
+}
+
+void heapSort(elementType arr[], int n) {
+    //无序序列建堆
+    int rootIndex;      //根索引
+    for (rootIndex = n / 2; rootIndex >= 0; rootIndex--) {
+        shift(arr, rootIndex, n);
+    }
+    for (rootIndex = n; rootIndex >= 1; rootIndex--) {
+        //输出根
+        swap(arr, rootIndex, 0);
+        //这里做个简单打印
+//        printf("%d\t", arr[1]);
+        shift(arr, 0, rootIndex - 1);
+    }
+}
+
+void swap(elementType arr[], int m, int n) {
+    elementType tmp = arr[m];
+    arr[m] = arr[n];
+    arr[n] = tmp;
+}
+
+
 void printArray(elementType arr[], int n) {
     int i;
     printf("打印数组中所有元素：\n");
