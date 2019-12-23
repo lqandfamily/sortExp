@@ -42,6 +42,47 @@ void insertSort(elementType arr[], int n) {
     }
 }
 
+void partition(elementType arr[], int low, int high, int *cutPoint) {
+    elementType temp = arr[low];        //这里选用子表的第一个数作为基准数，腾空该位置
+    //开始排序
+    while (low != high) {
+        //从后面搜索小的元素
+        while (low < high && arr[high] > temp) {
+            high--;
+        }
+        //找到小的元素
+        if (low < high) {
+            arr[low] = arr[high];
+            low = low + 1;
+        }
+        //从后面搜索大的元素
+        while (low < high && arr[low] < temp) {
+            low++;
+        }
+        //找到大的元素
+        if (low < high) {
+            arr[high] = arr[low];
+            high = high - 1;
+        }
+    }
+    //存放基准数
+    arr[low] = temp;
+    //返回基准数索引
+    *cutPoint = low;
+}
+
+void quickSort(elementType arr[], int low, int high) {
+    int cutPoint;
+    //递归结束条件
+    if (low < high) {
+        //1.划分并排序
+        partition(arr, low, high, &cutPoint);
+        //2.对子表划分排序
+        quickSort(arr, low, cutPoint - 1);
+        quickSort(arr, cutPoint + 1, high);
+    }
+}
+
 void printArray(elementType arr[], int n) {
     int i;
     printf("打印数组中所有元素：\n");
