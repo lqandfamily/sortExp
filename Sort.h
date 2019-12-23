@@ -64,6 +64,20 @@ void heapSort(elementType arr[], int n);
  */
 void swap(elementType arr[], int m, int n);
 
+
+void mergeSort(int arr[], int temp[], int left, int right);
+
+/**
+ * 将两个有序表归并成一个有序表
+ *
+ * @param arr
+ * @param temp     临时数组
+ * @param leftPos  左边开始下标
+ * @param rightPos 右边开始下标
+ * @param rightEnd 右边结束下标
+ */
+void merge(int arr[], int temp[], int leftPos, int rightPos, int rightEnd);
+
 /**
  * 打印数组中所有元素
  * @param arr

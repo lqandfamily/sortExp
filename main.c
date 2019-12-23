@@ -63,13 +63,26 @@ void testHeapSort() {
     printArray(srcArray, n);
 }
 
+/**
+ * 测试二路归并排序
+ */
+void testMergeSort() {
+    int n;
+    elementType srcArray[] = {180, 203, 32, 46, 25, 76, 17, 58, 99, 100, 11, 102, 13, 54, 75, 6, 27, 18, 19, 29, 2, 82};
+    elementType tempArray[22];
+    n = sizeof(srcArray) / sizeof(elementType);
+    mergeSort(srcArray, tempArray, 0, n - 1);
+    printArray(srcArray, n);
+}
+
 
 int main() {
 //    testSortHeap();
 //    testShellSort();
 //    testInsertSort();
 //    testQuickSort();
-    testHeapSort();
+//    testHeapSort();
+    testMergeSort();
     return 0;
 }
 
